@@ -1,4 +1,17 @@
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
-        arr = [i for i in arr if arr.count(i) == 1]
-        return "" if k > len(arr) else arr[k-1]
+        
+        dct_ = {}
+        for n in range(len(arr)):
+            if arr[n] in dct_:
+                dct_[arr[n]] += 1
+            else:
+                dct_[arr[n]] = 1
+            
+        for n in dct_:
+            if dct_[n] == 1:
+                k -= 1
+            if k == 0:
+                return(n)
+        
+        return ''
