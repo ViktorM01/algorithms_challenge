@@ -6,7 +6,7 @@ class Solution:
 
         for num in nums:
             digit_sum = sum(int(dd) for dd in str(num))
-            if lst[digit_sum] != 1:
+            if lst[digit_sum] != -1:
                 ans = max(ans, num + lst[digit_sum])
             lst[digit_sum] = max(num, lst[digit_sum])
         return ans
